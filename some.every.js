@@ -23,7 +23,9 @@ Examples:
 */
 
 function hasAZero(num) {
-    
+    return Array.from(String(num)).some(function(el){
+        return el == 0;
+    })
 }
 
 /*
@@ -36,7 +38,11 @@ Examples:
     hasOnlyOddNumbers([1,2,3,5,7]) // false
 */
 
-function hasOnlyOddNumbers(arr) {}
+function hasOnlyOddNumbers(arr) {
+    return arr.every(function(num){
+        return num % 2 !== 0;
+    })
+}
 
 /*
 Write a function called hasNoDuplicates which accepts an array and returns true 
@@ -48,7 +54,11 @@ Examples:
     hasNoDuplicates([1,2,3]) // true
 */
 
-function hasNoDuplicates(arr) {}
+function hasNoDuplicates(arr) {
+    return !arr.every(function(num){
+        return arr.indexOf(num) !== arr.lastIndexOf(num)
+    })
+}
 
 /*
 Write a function called hasCertainKey which accepts an array of objects 
@@ -67,7 +77,11 @@ Examples:
     hasCertainKey(arr,'isCatOwner') // false
 */
 
-function hasCertainKey(arr, key) {}
+function hasCertainKey(arr, key) {
+    return arr.every(function(obj){
+        return obj[key];
+    })
+}
 
 /*
 Write a function called hasCertainValue which accepts an array of objects and a key, 
@@ -87,4 +101,8 @@ Examples:
     
 */
 
-function hasCertainValue(arr, key, searchValue) {}
+function hasCertainValue(arr, key, searchValue) {
+    return arr.every(function(obj){
+        return obj[key] === searchValue;
+    })
+}
